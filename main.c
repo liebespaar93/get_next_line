@@ -31,15 +31,12 @@ int	main(void)
 			break ;
 		printf("%s", line);
 		free(line);
+		line = get_next_line(fd2);
+		if (!line)
+			break ;
+		printf("%s", line);
+		free(line);
 	}
-    while (i++ < 600)
-    {
-        line = get_next_line(fd2);
-        if (!line)
-            break ;
-        printf("%s", line);
-        free(line);
-    }
 	close(fd);
 	close(fd2);
 	system("leaks a.out");
